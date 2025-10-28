@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bet-Studio Settings</title>
+    <style>
+        /* 🎮 COMPACT OPTIONS - OVERLAY OPTIMIZED */
+        :root {
+            --bg: #0b0f17;
+            --panel: #121826;  
+            --neon: #00e676;
+            --neon2: #55d6ff;
+            --txt: #eaeef7;
+            --muted: #9bb0cf;
+            --accent: #ff6a00;
+            --border: rgba(85,214,255,0.3);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0; padding: 16px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--bg) 0%, #09111c 100%);
+            color: var(--txt);
+            width: 100%;
+            max-width: 500px; /* Compact for overlay */
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 18px;
+            color: var(--neon);
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(18,24,38,0.3);
+            border: 1px solid rgba(85,214,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--neon2);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 0;
+        }
+        
+        .setting-label {
+            font-size: 12px;
+            color: var(--txt);
+            flex: 1;
+        }
+        
+        .setting-description {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+        
+        /* Compact Toggle Switches */
+        .toggle {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background: rgba(155,176,207,0.2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .toggle.active {
+            background: linear-gradient(135deg, var(--neon), #00C853);
+            border-color: var(--neon);
+        }
+        
+        .toggle::before {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .toggle.active::before {
+            left: 22px;
+        }
+        
+        /* Compact Form Controls */
+        select {
+            background: rgba(18,24,38,0.8);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 6px 10px;
+            color: var(--txt);
+            font-size: 11px;
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--neon2);
+            box-shadow: 0 0 6px rgba(85,214,255,0.3);
+        }
+        
+        /* Compact Buttons */
+        .btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--accent), #ff8a00);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #ff8a00, #ffb74d);
+            transform: translateY(-1px);
+        }
+        
+        .btn.secondary {
+            background: linear-gradient(135deg, var(--neon2), #2196F3);
+        }
+        
+        /* Compact Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .stat-box {
+            background: rgba(0,230,118,0.05);
+            border: 1px solid rgba(0,230,118,0.2);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--neon);
+        }
+        
+        .stat-label {
+            font-size: 9px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+            font-size: 10px;
+            color: var(--muted);
+        }
+        
+        .footer a {
+            color: var(--neon2);
+            text-decoration: none;
+        }
+        
+        /* Responsive for small overlays */
+        @media (max-width: 400px) {
+            body { padding: 12px; font-size: 12px; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">⚡ BET-STUDIO ⚡</div>
+        <div class="subtitle">Control Panel</div>
+    </div>
+
+    <!-- 🎮 ESSENTIAL SETTINGS ONLY -->
+    <div class="section">
+        <div class="section-title">🕹️ Gaming</div>
+        
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Sound Effects</div>
+                <div class="setting-description">8-bit audio feedback</div>
+            </div>
+            <div class="toggle" id="soundToggle"></div>
+        </div>
+        
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">CRT Effect</div>
+                <div class="setting-description">Retro scanlines</div>
+            </div>
+            <div class="toggle active" id="scanlinesToggle"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🤖 AI Settings</div>
+        
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Confidence Threshold</div>
+                <div class="setting-description">Minimum prediction confidence</div>
+            </div>
+            <select id="confidenceThreshold">
+                <option value="40">40%</option>
+                <option value="50" selected>50%</option>
+                <option value="60">60%</option>
+                <option value="70">70%</option>
+            </select>
+        </div>
+        
+        <div class="setting-row">
+            <div>
+                <div class="setting-label">Auto-refresh</div>
+                <div class="setting-description">Real-time updates</div>
+            </div>
+            <div class="toggle active" id="realTimeToggle"></div>
+        </div>
+    </div>
+
+    <!-- 📊 COMPACT STATS -->
+    <div class="section">
+        <div class="section-title">📊 Stats</div>
+        
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number" id="totalPredictions">47</div>
+                <div class="stat-label">Predictions</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="accuracyRate">73%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+        </div>
+        
+        <div class="setting-row" style="margin-top: 15px;">
+            <div>
+                <div class="setting-label">Connect Account</div>
+                <div class="setting-description">Advanced features</div>
+            </div>
+            <button class="btn secondary" id="connectAccount">Connect</button>
+        </div>
+    </div>
+
+    <!-- 🔧 QUICK ACTIONS -->
+    <div class="section">
+        <div class="section-title">🔧 Actions</div>
+        
+        <div class="setting-row">
+            <button class="btn" id="clearCache">Clear Cache</button>
+            <button class="btn secondary" id="resetSettings">Reset All</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://bet-studio.com" target="_blank">Visit bet-studio.com</a>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

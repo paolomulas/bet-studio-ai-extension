@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Bet-Studio</title>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Hero Section with Settings -->
+    <div class="hero">
+      <div class="logo-row">
+        <div class="logo">⚽</div>
+        <div class="title-section">
+          <h1 class="pix">BET-STUDIO</h1>
+          <div class="tag">AI-powered football predictions</div>
+        </div>
+        <!-- 🚀 Settings Icon (8-bit style) -->
+        <div class="settings-icon" id="settingsBtn" title="Control Panel">
+          <div class="pixel-gear">⚙</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Match Cards Grid -->
+    <div class="cards" id="cards">
+      <!-- Loading state -->
+      <div class="loading-container" id="loadingState">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">LOADING PREDICTIONS...</div>
+        <div class="loading-subtext">Analyzing match data</div>
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="foot">
+      <button class="cta wide" id="all-btn">
+        <span class="cta-icon">🎮</span>
+        <span class="cta-text">Enter The Arena</span>
+        <span class="cta-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

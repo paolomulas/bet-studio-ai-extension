@@ -1,0 +1,22 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Temp
+*.log
+*.tmp
+~*
+
+# Extension specific
+*.crx
+*.pem
+*.zip
+
+# Test files
+test/
+*.test.js
